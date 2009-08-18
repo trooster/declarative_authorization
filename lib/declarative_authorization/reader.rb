@@ -28,7 +28,11 @@ module Authorization
   # * AuthorizationRulesReader#is,
   # * AuthorizationRulesReader#is_not,
   # * AuthorizationRulesReader#is_in,
-  # * AuthorizationRulesReader#is_not_in
+  # * AuthorizationRulesReader#is_not_in,
+  # * AuthorizationRulesReader#lt,
+  # * AuthorizationRulesReader#lte,
+  # * AuthorizationRulesReader#gt,
+  # * AuthorizationRulesReader#gte  
   #
   # And privilege definition methods
   # * PrivilegesReader#privilege,
@@ -411,6 +415,22 @@ module Authorization
       # The negation of is_in.
       def is_not_in (&block)
         [:is_not_in, block]
+      end
+      
+      def lt (&block)
+        [:lt, block]
+      end
+      
+      def lte (&block)
+        [:lte, block]
+      end
+      
+      def gt (&block)
+        [:gt, block]
+      end
+      
+      def gte (&block)
+        [:gte, block]
       end
       
       private
